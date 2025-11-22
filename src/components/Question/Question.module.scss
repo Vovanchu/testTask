@@ -1,0 +1,128 @@
+@use "../../styles/variables.scss" as vars;
+
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 96px 0;
+
+  &__title {
+    font-size: 44px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 768px) {
+      font-size: 36px;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 28px;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 56px 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 56px 20px;
+  }
+}
+
+.question__item {
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  &__header {
+    width: 100%;
+    padding: 20px;
+    font-size: 18px;
+    background: #eaeff0;
+    color: #030718;
+
+    border: none;
+    outline: none;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+
+    span:last-child {
+      transition: transform 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+      padding: 16px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 14px;
+      font-size: 15px;
+    }
+  }
+
+  .openHeader {
+    background: #6a54ff;
+    color: #fff;
+
+    span:last-child {
+      color: #fff;
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    font-size: 16px;
+    white-space: pre-line;
+    padding: 0 20px;
+
+    color: #6a54ff;
+
+    transition: max-height 0.35s ease, padding 0.3s ease;
+
+    @media (max-width: 768px) {
+      font-size: 15px;
+      padding: 0 16px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+      padding: 0 14px;
+    }
+  }
+
+  .openContent {
+    max-height: 300px;
+    padding: 20px;
+    background: #6a54ff;
+    color: #fff;
+
+    @media (max-width: 768px) {
+      max-height: 250px;
+      padding: 16px;
+    }
+
+    @media (max-width: 480px) {
+      max-height: 220px;
+      padding: 14px;
+    }
+  }
+}
+
+.open {
+  transform: rotate(180deg);
+}

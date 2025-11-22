@@ -1,0 +1,39 @@
+.wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.top {
+  position: absolute;
+  inset: 0;
+  background: #0a0520;
+  z-index: 1;
+}
+
+.bottom {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  z-index: 2;
+  clip-path: polygon(50% 0, 55% 100%, 0 100%, 0 0);
+}
+
+// Responsive
+@media (max-width: 1024px) {
+  .bottom {
+    clip-path: polygon(45% 0, 50% 100%, 0 100%, 0 0);
+  }
+}
+
+@media (max-width: 768px) {
+  .bottom {
+    clip-path: polygon(40% 0, 45% 100%, 0 100%, 0 0);
+  }
+}
+
+@media (max-width: 480px) {
+  .bottom {
+    clip-path: polygon(35% 0, 40% 100%, 0 100%, 0 0);
+  }
+}

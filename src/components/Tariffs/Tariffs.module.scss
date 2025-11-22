@@ -1,0 +1,286 @@
+@use "../../styles/variables.scss" as vars;
+
+.tariffs {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #1a1042 0%, #0a0520 100%);
+  padding: 60px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  color: white;
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+// Tabs
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 50px;
+  justify-content: center;
+}
+
+.tabBtn {
+  padding: 16px 60px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  background: #3d2e7c;
+  color: #8b7ec8;
+  transition: all 0.3s ease;
+
+  &:first-child {
+    border-radius: 8px 0 0 8px;
+  }
+
+  &:last-child {
+    border-radius: 0 8px 8px 0;
+  }
+
+  &.active {
+    background: #00d4ff;
+    color: #0a0520;
+  }
+
+  &:hover:not(.active) {
+    background: #4a3a8f;
+  }
+}
+
+// Cards
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.card {
+  background: rgba(20, 15, 45, 0.6);
+  border: 2px solid #2d1f5f;
+  border-radius: 16px;
+  padding: 40px 30px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  &.vipCard {
+    background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+    border: 2px solid #9333ea;
+  }
+}
+
+.cardTitle {
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 35px;
+  letter-spacing: 1px;
+}
+
+// Features
+.features {
+  margin-bottom: 40px;
+}
+
+.featureItem {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  align-items: flex-start;
+}
+
+.checkmark {
+  color: #00d4ff;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-weight: 700;
+}
+
+.featureText {
+  color: white;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.95;
+}
+
+// Price block
+.priceBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  .vipCard & {
+    border-top-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.price {
+  color: white;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.discount {
+  color: #4ade80;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+// Dropdown
+.dropdownWrapper {
+  position: relative;
+}
+
+.monthBtn {
+  padding: 10px 20px;
+  background: rgba(60, 45, 100, 0.8);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s ease;
+
+  .vipCard & {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  &:hover {
+    background: rgba(80, 60, 120, 1);
+
+    .vipCard & {
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
+.arrow {
+  font-size: 10px;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 5px;
+  background: #1a1042;
+  border: 1px solid #3d2e7c;
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 10;
+  min-width: 140px;
+}
+
+.dropdownItem {
+  padding: 10px 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  background: transparent;
+  transition: background 0.2s;
+
+  &:hover {
+    background: #3d2e7c;
+  }
+
+  &.selected {
+    background: #3d2e7c;
+  }
+}
+
+// Button
+.tryBtn {
+  width: 100%;
+  padding: 16px;
+  background: #00d4ff;
+  color: #0a0520;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #00b8e6;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+  }
+}
+
+.trialText {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+  }
+
+  .tabs {
+    flex-direction: column;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tabBtn {
+    border-radius: 8px !important;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .priceBlock {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .dropdownWrapper {
+    width: 100%;
+  }
+
+  .monthBtn {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

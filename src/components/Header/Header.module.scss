@@ -1,0 +1,312 @@
+@use "../../styles/variables" as vars;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: vars.$color-accent;
+  width: 100%;
+  height: 68px;
+  padding: 0 80px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-sizing: border-box;
+
+  @media (max-width: 1024px) {
+    padding: 0 40px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 24px;
+    height: 60px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 16px;
+  }
+
+  &__logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    z-index: 101;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    &_photo {
+      width: 130px;
+      height: 80px;
+
+      @media (max-width: 768px) {
+        width: 110px;
+        height: 70px;
+      }
+
+      @media (max-width: 480px) {
+        width: 90px;
+        height: 60px;
+      }
+    }
+
+    &_hidden {
+      @media (max-width: 968px) {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+  }
+
+  // Desktop Navigation
+  &__nav_desktop {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+
+    @media (max-width: 968px) {
+      display: none;
+    }
+
+    .header__nav__list {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 8px;
+    }
+
+    .header__nav__link {
+      text-decoration: none;
+      color: vars.$color-white;
+      opacity: 0.8;
+      padding: 8px 16px;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 17px;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+      white-space: nowrap;
+
+      &:hover {
+        opacity: 1;
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0px 0px 8px 1px vars.$color-primary;
+      }
+    }
+  }
+
+  // Desktop Buttons
+  &__btn_desktop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+
+    @media (max-width: 968px) {
+      display: none;
+    }
+  }
+
+  &__btn__login {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    cursor: pointer;
+    color: vars.$color-secondary;
+    background-color: rgba(vars.$color-secondary, 0.3);
+    border: 2px solid vars.$color-secondary;
+    border-radius: 5px;
+    padding: 8px 16px;
+    box-shadow: 0 0 8px rgba(vars.$color-secondary, 0.7);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: vars.$color-secondary;
+      color: vars.$color-accent;
+      box-shadow: 0 0 12px rgba(vars.$color-secondary, 0.9);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  &__btn__register {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    cursor: pointer;
+    color: vars.$color-accent;
+    background-color: vars.$color-secondary;
+    border: 2px solid vars.$color-secondary;
+    border-radius: 5px;
+    padding: 8px 16px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: rgba(vars.$color-secondary, 0.3);
+      color: vars.$color-secondary;
+      box-shadow: 0 0 12px rgba(vars.$color-secondary, 0.7);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Burger Button
+  &__burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 101;
+    transition: all 0.3s ease;
+
+    @media (max-width: 968px) {
+      display: flex;
+    }
+
+    span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: vars.$color-white;
+      border-radius: 2px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &_open {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+      }
+    }
+
+    &:hover span {
+      background: vars.$color-white;
+    }
+  }
+
+  // Mobile Menu Overlay
+  &__menu_overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: vars.$color-primary;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 80px 40px 40px;
+    box-sizing: border-box;
+
+    @media (max-width: 968px) {
+      display: flex;
+    }
+
+    @media (max-width: 480px) {
+      padding: 80px 24px 40px;
+    }
+
+    &_open {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  // Mobile Navigation
+  &__nav_mobile {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+
+    .header__nav__list_mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 24px;
+      width: 100%;
+    }
+
+    .header__nav__link_mobile {
+      text-decoration: none;
+      color: vars.$color-white;
+      font-size: 24px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+      padding: 12px 0;
+      width: 100%;
+      text-align: left;
+
+      &:hover {
+        color: vars.$color-secondary;
+        padding-left: 16px;
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+  }
+
+  // Mobile Buttons
+  &__btn_mobile {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 24px;
+
+    @media (max-width: 480px) {
+      flex-direction: row-reverse;
+    }
+
+    button {
+      flex: 1;
+      font-size: 16px;
+      padding: 12px 24px;
+
+      @media (max-width: 480px) {
+        width: 100%;
+      }
+    }
+  }
+}

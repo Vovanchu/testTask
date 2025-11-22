@@ -1,0 +1,177 @@
+@use "../../styles/variables" as vars;
+
+.stat {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 63px 0;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 50px;
+    padding: 63px 63px;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 30px;
+    padding: 33px 33px;
+  }
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 32px 16px;
+    gap: 40px;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+
+    margin: 0;
+    padding: 0;
+
+    &__text {
+      margin: 0;
+      padding: 0;
+
+      font-size: 44px;
+      font-weight: 700;
+      font-style: bold;
+      text-transform: uppercase;
+
+      @media (max-width: 1024px) {
+        font-size: 36px;
+      }
+      @media (max-width: 768px) {
+        font-size: 32px;
+      }
+      @media (max-width: 480px) {
+        font-size: 28px;
+      }
+    }
+
+    &__date {
+      margin: 0;
+      padding: 0;
+
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 96px;
+    margin: 0;
+    padding: 0;
+
+    &__card {
+      animation: fadeIn 0.5s ease forwards;
+      visibility: hidden;
+
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+
+      &__title {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+
+      &__number {
+        margin: 0;
+        padding: 0;
+        font-size: 60px;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: vars.$color-bg;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      gap: 50px;
+
+      &__card {
+        flex: 0 0 45%;
+        margin-bottom: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      gap: 30px;
+
+      &__card {
+        flex: 0 0 45%;
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      gap: 20px;
+
+      &__card {
+        flex: 0 0 100%;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    visibility: visible;
+    opacity: 0;
+    transform: scale(0);
+  }
+  25% {
+    visibility: visible;
+    opacity: 0.5;
+    transform: scale(0.5);
+  }
+  50% {
+    visibility: visible;
+    opacity: 0.8;
+    transform: scale(0.8);
+  }
+  75% {
+    visibility: visible;
+    opacity: 0.9;
+    transform: scale(0.9);
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1024px) {
+}
+@media (max-width: 768px) {
+}
+@media (max-width: 480px) {
+}
