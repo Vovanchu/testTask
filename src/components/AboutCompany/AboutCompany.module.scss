@@ -210,7 +210,7 @@
         white-space: nowrap;
 
         &:hover {
-          background: lighten(vars.$color-secondary, 5%);
+          background: vars.$color-secondary;
           box-shadow: 0 0 12px rgba(vars.$color-secondary, 0.9);
           transform: translateY(-50%) scale(1.02);
         }

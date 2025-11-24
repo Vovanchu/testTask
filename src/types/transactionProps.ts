@@ -1,4 +1,4 @@
-type Transaction = {
+export type Transaction = {
   id: number;
   pair: string;
   type: string;
@@ -7,5 +7,3 @@ type Transaction = {
   target: number;
   date: string;
 };
-
-export default Transaction;

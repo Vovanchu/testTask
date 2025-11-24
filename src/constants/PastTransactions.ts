@@ -1,4 +1,4 @@
-import type Transaction from "../types/transactionProps";
+import type { Transaction } from "../types/transactionProps";
 
 const PastTransactionsData: Transaction[] = [
   {
